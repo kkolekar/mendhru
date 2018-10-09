@@ -1,0 +1,6 @@
+name: deman
+description: deman starter Theme
+type: theme
+core: 8.x
+libraries:
+  -deman/global-css:

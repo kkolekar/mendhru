@@ -1,0 +1,8 @@
+name: mendhru
+description: mendhru starter theme
+type: theme
+core: 8.x
+libraries:
+  - mendhru/global-css
+  - mendhru/global-js
+  
