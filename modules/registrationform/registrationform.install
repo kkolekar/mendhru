@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the registrationform module.
+ */
+
+function registrationform_schema_mendhrudb() {
+  $schema['registration_form'] = array(
+    'description' => 'My table description',
+    'fields' => array(
+
+       'uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "Creator user's ",
+       ),
+       'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ),
+
+    ),
+    'primary key' => array('uid'),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+
+function registrationform_install() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+
+  $schema = registrationform_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->createTable($name, $table);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+ 
+function registrationform_uninstall() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+
+  $schema = registrationform_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->dropTable($name);
+  }
+
+  \Drupal\Core\Database\Database::setActiveConnection();
+}
