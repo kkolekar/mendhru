@@ -6,15 +6,13 @@
  */
 
 function registrationform_schema_mendhrudb() {
-  $schema['registration_form'] = array(
+  $schema['Member'] = array(
     'description' => 'My table description',
     'fields' => array(
-
        'uid' => array(
-        'type' => 'int',
+        'type' => 'serial',
         'not null' => TRUE,
-        'default' => 0,
-        'description' => "Creator user's ",
+        'description' => "Creator user id ",
        ),
        'name' => array(
         'type' => 'varchar',
@@ -23,6 +21,22 @@ function registrationform_schema_mendhrudb() {
         'default' => '',
         'description' => 'Name of the person.',
       ),
+      'contact' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Contact of the person.',
+      ),
+      'password' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Password of the person.',
+      ),
+
+
 
     ),
     'primary key' => array('uid'),

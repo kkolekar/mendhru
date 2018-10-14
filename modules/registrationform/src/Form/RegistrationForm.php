@@ -22,9 +22,14 @@ class RegistrationForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['Name'] = array(
+    $form['name'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Name'),
+      '#title' => $this->t('Full Name'),
+    );
+
+    $form['contact'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Mobile Number'),
     );
 
     $form['password'] = array(
@@ -32,15 +37,10 @@ class RegistrationForm extends FormBase {
       '#title' => $this->t('Password'),
     );
 
-    $form['Contact'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Contact'),
-    );
-
-    $form['Save'] = array(
+    $form['Submit'] = array(
       '#type' => 'submit',
       '#input'=> 'TRUE',
-      '#value' => $this->t('Save'),
+      '#value' => $this->t('Join'),
     );
     
     return $form;
@@ -58,26 +58,28 @@ class RegistrationForm extends FormBase {
      */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-      $name = $form_state->getValue('Name');
-      $password = $form_state->getValue('Password');
-      $contact = $form_state->getValue('Contact');
-      $save = $form_state->getValue('Save');
+      $name = $form_state->getValue('name');
+      $contact = $form_state->getValue('contact');
+      $password = $form_state->getValue('password');
+      
+      //$save = $form_state->getValue('Save');
       $field = array(
-          'uid' => 1,
+         /* 'uid' => 1,*/
           'name' =>  $name,
-         /* 'Password' => $password,
-          'Contact' =>  $contact,
+          'contact' =>  $contact,
+          'password' => $password = md5($password),//$password,
+          
     
-         'Etat_message'=>  '',
+         /*'Etat_message'=>  '',
           'Date_contact'=>  '',
           'adresse_IP'=>  '',*/
           
       );
       drupal_set_message( $name);
-   db_insert('registration_form')
+   db_insert('Member')
        ->fields($field)
       ->execute();
-    drupal_set_message("succesfully saved");
+    drupal_set_message("Succesfully Joined!");
 
       
   }
