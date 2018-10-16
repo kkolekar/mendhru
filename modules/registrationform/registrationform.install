@@ -26,7 +26,7 @@ function registrationform_schema_mendhrudb() {
         'length' => 255,
         'not null' => TRUE,
         'default' => '',
-        'description' => 'Contact of the person.',
+        'description' => 'Contact of the email.',
       ),
       'password' => array(
         'type' => 'varchar',
