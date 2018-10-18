@@ -1,0 +1,8 @@
+registrationform.form:
+  path: '/registration-form'
+  defaults:
+    _title: 'Sign Up For Mendhru'
+    _form: '\Drupal\registrationform\Form\RegistrationForm'
+  requirements:
+    _permission: 'access content'
+   

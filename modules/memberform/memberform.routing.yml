@@ -1,0 +1,8 @@
+memberform.form:
+  path: '/member-form'
+  defaults:
+    _title: 'Sign Up For Mendhru'
+    _form: '\Drupal\memberform\Form\MemberForm'
+  requirements:
+    _permission: 'access content'
+   
