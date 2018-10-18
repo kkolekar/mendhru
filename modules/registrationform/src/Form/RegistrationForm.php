@@ -29,7 +29,7 @@ class RegistrationForm extends FormBase {
 
     $form['contact'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Mobile Number'),
+      '#title' => $this->t('mobile number'),
     );
 
     $form['password'] = array(
