@@ -1,13 +1,13 @@
 .module{
-    background: ghostwhite;
-    border: 2px solid;
-    height: 536px;
-    width: 30%;
-    float: right;
-    padding: 20px;
-    margin-top: 10px;
-    padding-top: 60px;
-    padding-left: 70px;
+        background: transparent;
+        border: 2px solid;
+        height: 536px;
+        width: 30%;
+        float: right;
+        padding: 20px;
+        margin-top: 10px;
+        padding-top: 60px;
+        padding-left: 70px;
 
     #edit-name{
         width: 52%;
@@ -18,11 +18,11 @@
     }    
 
     #edit-email{
-            width: 52%;
-            height: 25px;
-            margin-left: 62px;
-            margin-top: 11px;
-            border: 1px solid #c4c4c4;
+        width: 52%;
+        height: 25px;
+        margin-left: 62px;
+        margin-top: 11px;
+        border: 1px solid #c4c4c4;
 
     } 
     
@@ -74,17 +74,17 @@
     }
 
     #edit-marital-status{
-    margin-left: 27px;
-    width: 45%;
-    height: 25px;
-    margin-top: 10px;
+        margin-left: 27px;
+        width: 45%;
+        height: 25px;
+        margin-top: 10px;
     }
 
     #edit-gender{
-    width: 45%;
-    height: 25px;
-    margin-top: 10px;
-    margin-left: 70px;
+        width: 45%;
+        height: 25px;
+        margin-top: 10px;
+        margin-left: 70px;
     }
 
     #edit-religion{
@@ -95,24 +95,31 @@
     }
 
     #edit-submit{
-    width: 30%;
-    height: 45px;
-    margin-left: 115px;
-    margin-top: 37px;
+        width: 30%;
+        height: 45px;
+        margin-left: 115px;
+        margin-top: 37px;
+    }
+
+    #edit-contact{
+        width: 52%;
+        height: 25px;
+        margin-left: 30px;
+        border: 1px solid #c4c4c4;
+        margin-top: 11px;
     }
 }
 
 .layout-container{
     background: url(/themes/custom/mendhru/images/content.jpg);
-    height: 609px;
+    height: -webkit-fill-available;
 }
 
 //for mobile view
 @media screen and (max-width: 600px) {
     
     .module{
-       
-           width: 100%;
+    width: 100%;
     padding-left: 30px;
        
     }
