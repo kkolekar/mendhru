@@ -1,19 +1,17 @@
 .bottom{
-    position: relative;
     background-color: #192b3a;
-    
+
        .views-row {
           display: inline-block;  
         }
-   
    #block-views-block-contact-view-block-1{
+
         .views-row {
             color: rgba(255, 255, 255, 0.2);  
             float: right;
             display: -webkit-box; 
             margin-left: 50px;
-        }
-        
+        }    
    }
     .copyright{
         text-align: center;
@@ -26,6 +24,12 @@
     }
 }
 
+.footer{
+    position:fixed;
+    bottom:0;
+    width: 100%;
+}
+
 .page-footer{
     text-align: center;
     font-size: 15px;
@@ -33,13 +37,13 @@
     color: rgba(218, 236, 251, 0.8);
     line-height: 17px;
     padding: 0 110px 0 30px;
-    margin-top: 550px;
-    
-    
 
     .footer-style{
         padding: 40px;
+        height: 300px;
+
         #block-aboutmendhrucom{
+            
             h2{
                 font-size: 30px;
                 padding: 30px;
@@ -73,7 +77,6 @@
 //for mobile view
 @media screen and (max-width: 600px) {
     
-
     .page-footer {
         padding: 7px;
     }
