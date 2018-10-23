@@ -1,6 +1,5 @@
 <div class="contentpage">
- <div class="layout-container">
-
+  <div class="layout-container">
     <div id="sideNavigation" class="sidenav">
       <a href="javascript:void(0)" class="closebtn">&times;</a>
       <a href="#">About</a>
@@ -26,16 +25,15 @@
         {% set header_cover = 'header-cover'%}
     {% endif %}
       
-      <header role="banner" class="{{ header_cover }}">
-        {{ page.header }}  
-      </header>
+    <header role="banner" class="{{ header_cover }}">
+       {{ page.header }}  
+    </header>
 
-      {% if node.field_page_type.value =='home' %}
-        <div class="header_text">
-          Amhi Dhangar
-        </div>
+    {% if node.field_page_type.value =='home' %}
+      <div class="header_text">
+        Amhi Dhangar
+      </div>
     {% endif %}
-
 
     {% if node.field_page_type.value =='home' %}
       <div class="feature-style">
@@ -45,57 +43,52 @@
         </div>
     {% endif %}
         
-      {{ page.breadcrumb }}
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
 
-      {{ page.highlighted }}
-
-      {{ page.help }}
-
-
-      <div class="secondary-menu">
-        {{ page.secondary_menu }} 
-      </div>
+    <div class="secondary-menu">
+      {{ page.secondary_menu }} 
+    </div>
 
 
-      
+    {% if node.field_page_type.value !='home' %}
       <main role="main" class="module">
-      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    
-      <div class="layout-content" class="quickedit-field">
-      
-        {{ page.content }}
-      </div>{# /.layout-content #}
-      
+        <a id="main-content" tabindex="-1">
+        </a>{# link is in html.html.twig #}
+        <div class="layout-content" class="quickedit-field">
+          {{ page.content }}
+        </div>{# /.layout-content #}
 
-      {% if page.sidebar_first %}
-        <aside class="layout-sidebar-first" role="complementary">
-          {{ page.sidebar_first }}
-        </aside>
-      {% endif %}
-
-      {% if page.sidebar_second %}
-        <aside class="layout-sidebar-second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
-
-     </main>
+        {% if page.sidebar_first %}
+          <aside class="layout-sidebar-first" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endif %}
+        {% if page.sidebar_second %}
+          <aside class="layout-sidebar-second" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endif %}
+      </main>
+    {% endif %} 
 
     <div class="page-footer">
         {% if page.footer %}
-            <footer role="contentinfo" class="footer-style">
-                {{ page.footer }}
-            </footer>
+          <footer role="contentinfo" class="footer-style">
+            {{ page.footer }}
+          </footer>
         {% endif %}
-      </div>
-      <div class="footer">
-        <div class="footer-menu">
-          {% if page.footer_first %}
-              <div class="bottom">
-              {{ page.footer_first }}
+    </div>
+    <div class="footer">
+      <div class="footer-menu">
+        {% if page.footer_first %}
+          <div class="bottom">
+            {{ page.footer_first }}
             <div class="copyright"> Copyright © 2018 Mendhru Internet Services</div>
-              </div>
-          {% endif %}    
-      </div>    </div>
+          </div>
+        {% endif %}    
+      </div>    
+    </div>
   </div>{# /.layout-container #}
 </div>
