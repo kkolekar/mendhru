@@ -1,22 +1,36 @@
 <?php
-
 /**
  * @file
  * Install, update and uninstall functions for the memberform module.
  */
+  function memberform_schema_mendhrudb() {
+    $schema['registration'] = array(
+      'description' => 'My table description',
 
-function memberform_schema_mendhrudb() {
-  $schema['registration'] = array(
-    'description' => 'My table description',
-    'fields' => array(
-       'uid' => array(
+      'fields' => array(
+        'id' => array(
         'type' => 'serial',
         'not null' => TRUE,
         'description' => "Creator user id ",
-       ),
+      ),
 
+      'uuid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'uuid of the person.',
+      ),
 
-       'member_dob' => array(
+      'contact' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Contact of the person.',
+      ),
+
+      'member_dob' => array(
         'type' => 'int',
         'length' => 11,
         'not null' => TRUE,
@@ -24,14 +38,14 @@ function memberform_schema_mendhrudb() {
         'description' => 'DOB of the person.',
       ),
 
-      
-       'name' => array(
+      'name' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
         'default' => '',
         'description' => 'name of the person.',
       ),
+
       'email' => array(
         'type' => 'varchar',
         'length' => 255,
@@ -39,7 +53,7 @@ function memberform_schema_mendhrudb() {
         'default' => '',
         'description' => 'email of the person.',
       ),
-      
+        
       'password' => array(
         'type' => 'varchar',
         'length' => 255,
@@ -79,7 +93,7 @@ function memberform_schema_mendhrudb() {
         'default' => '',
         'description' => 'marital status of the person.',
       ),
- 
+  
       'gender' => array(
         'type' => 'varchar',
         'length' => 255,
@@ -96,16 +110,11 @@ function memberform_schema_mendhrudb() {
         'description' => 'religion of the person.',
       ),
 
-      
-
-
-
     ),
-    'primary key' => array('uid'),
+    'primary key' => array('id'),
   );
   return $schema;
 }
-
 /**
  * Implements hook_install().
  */
@@ -113,7 +122,6 @@ function memberform_schema_mendhrudb() {
 function memberform_install() {
   \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
   $connection = \Drupal\Core\Database\Database::getConnection();
-
   $schema = memberform_schema_mendhrudb();
   foreach ($schema as $name => $table) {
     $connection->schema()->createTable($name, $table);
@@ -124,15 +132,13 @@ function memberform_install() {
 /**
  * Implements hook_uninstall().
  */
- 
+
 function memberform_uninstall() {
   \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
   $connection = \Drupal\Core\Database\Database::getConnection();
-
   $schema = memberform_schema_mendhrudb();
   foreach ($schema as $name => $table) {
     $connection->schema()->dropTable($name);
   }
-
   \Drupal\Core\Database\Database::setActiveConnection();
 }
