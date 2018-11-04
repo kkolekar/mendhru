@@ -1,0 +1,1 @@
+aws s3 cp s3://dhangar-web-conf/settings.php /var/www/html/sites/default/
