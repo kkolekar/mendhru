@@ -1,0 +1,9 @@
+member-profile:
+  version: 1.x
+  css:
+    layout:
+      css/member-profile-layout.css: {}
+  js:
+    js/member-profile.js: {}
+  dependencies:
+      - core/jquery
