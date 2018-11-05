@@ -1,0 +1,161 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the scholrshipform module.
+ */
+  function scholarship_schema_mendhrudb() {
+    $schema['scholarship'] = array(
+      'description' => 'My table description',
+
+      'fields' => array(
+        'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => " user id ",
+      ),
+
+         'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'name of the person.',
+      ),
+
+        'member_dob' => array(
+        'type' => 'int',
+        'length' => 11,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'DOB of the person.',
+      ),
+
+        'gender' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'gender of the person.',
+      ),
+
+        'citizenship' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Citizenship of the person.',
+      ),
+
+        'email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'email of the person.',
+      ),
+       
+       'address' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'address of the person.',
+      ),
+
+        'city' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'city of the person.',
+      ),
+
+         'zipcode' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => ' zipcode of city.',
+      ),
+       
+        'study_status' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'study status of the person.',
+      ),
+
+        'qualification1' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'qualification of person .',
+      ),
+
+         'qualification2' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'qualification of person .',
+      ),
+
+
+         'religion' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'religion of the person.',
+      ),
+
+         'marital_status' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'marital status of the person.',
+      ),
+
+        'award' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'list of award  .',
+      ),
+
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}
+/**
+ * Implements hook_install().
+ */
+
+function scholarship_install() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $schema = scholarship_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->createTable($name, $table);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+
+function scholarship_uninstall() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $schema = scholarship_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->dropTable($name);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}

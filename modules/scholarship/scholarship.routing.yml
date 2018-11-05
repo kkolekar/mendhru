@@ -1,0 +1,7 @@
+scholarship.form:
+  path: '/scholarships'
+  defaults:
+    _title: 'scholarships for student'
+    _form: '\Drupal\scholarship\Form\ScholarshipForm'
+  requirements:
+    _permission: 'access content'
