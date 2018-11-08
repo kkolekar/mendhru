@@ -1,0 +1,92 @@
+<div class="contentpage">
+  <div class="layout-container">
+    <div id="sideNavigation" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Features</a>
+      <a href="#">Contact Us</a>
+    </div>
+    
+    <nav class="topnav">
+      <a href="#">
+        <svg width="30" height="30" id="icoOpen">
+          <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+          <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+          <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+        </svg>
+      </a>
+    </nav>
+
+    <div class="menu-bar">
+      {{ page.primary_menu }}
+    </div>
+
+    {% if node.field_page_type.value =='home' %}
+        {% set header_cover = 'header-cover'%}
+    {% endif %}
+      
+    <header role="banner" class="{{ header_cover }}">
+       {{ page.header }}  
+    </header>
+
+
+
+    {% if node.field_page_type.value =='home' %}
+      <div class="header_text">
+        Amhi Dhangar
+      </div>
+    {% endif %}
+
+    {% if node.field_page_type.value =='home' %}
+      <div class="feature-style">
+            <div class="feature-top">
+              {{ page.featured_top }}
+            </div>
+        </div>
+    {% endif %}
+        
+    {{ page.breadcrumb }}
+    {{ page.highlighted }}
+    {{ page.help }}
+
+    <div class="secondary-menu">
+      {{ page.secondary_menu }} 
+    </div>
+
+
+{{kint(memberName)}}
+    <div class="member-profile-wraper" style="margin: 0px auto; height:600px; width:400px; border: 1px solid #c8c8c8; background-color: #ffffff;">
+        <div class="memberName">
+            {{memberName}}
+        </div>
+        <div class="memberName">
+            {{memberContact}}
+        </div>
+        <div class="memberName">
+            {{memberheights}}
+        </div>
+    </div>
+
+
+
+   
+
+    <div class="page-footer">
+        {% if page.footer %}
+          <footer role="contentinfo" class="footer-style">
+            {{ page.footer }}
+          </footer>
+        {% endif %}
+    </div>
+    <div class="footer">
+      <div class="footer-menu">
+        {% if page.footer_first %}
+          <div class="bottom">
+            {{ page.footer_first }}
+            <div class="copyright"> Copyright © 2018 Mendhru Internet Services</div>
+          </div>
+        {% endif %}    
+      </div>    
+    </div>
+  </div>{# /.layout-container #}
+</div>

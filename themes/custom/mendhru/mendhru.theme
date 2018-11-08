@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the mendhru theme.
+ */
+function getUserData(){
+
+
+
+$result = \Drupal::database()->select('registration','n')
+       ->fields( 'n',array('uuid', 'name', 'contact','city','height','gender','marital_status','member_dob'))
+       ->execute()->fetchAllAssoc('uuid');
+      // kint($result);
+
+
+       $rows = array();
+       foreach ($result as $row => $content) {
+         $rows['data'] = array(
+           'memberName' =>$content->name,
+         'memberContact' =>$content->contact,
+         'memberheight' =>$content->height,
+
+           //array($content->name, $content->contact,$content->city,$content->height,$content->marital_status,$content->member_dob));
+       );
+       }
+
+return $rows;
+
+}
+
+
+    function mendhru_preprocess_page__my_profile(&$variables) {
+        $userData = getUserData();
+      //  kint($userData );
+        $variables['memberName'] = $userData['data']['memberName'];
+        $variables['memberContact'] = $userData['data']['memberContact'];
+        $variables['memberheight'] = $userData['data']['memberheight'];
+    }
+ 
