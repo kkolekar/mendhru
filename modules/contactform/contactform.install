@@ -1,0 +1,74 @@
+s<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the contact form.
+ */
+function contactform_schema_mendhrudb() {
+   $schema['contact'] = array(
+    'description' => 'My table description',
+
+     'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => " user id ",
+      ),
+
+    'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ),
+
+       'contact' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Contact of the person.',
+      ),
+
+       'Message' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => ' user message ',
+      ),
+
+     ),
+         
+     'primary key' => array('id'),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+
+function contactform_install() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $schema = contactform_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->createTable($name, $table);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+ 
+function contactform_uninstall() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $schema = contactform_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->dropTable($name);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}
