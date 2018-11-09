@@ -29,6 +29,8 @@
        {{ page.header }}  
     </header>
 
+
+
     {% if node.field_page_type.value =='home' %}
       
     {% endif %}
@@ -50,26 +52,75 @@
     </div>
 
 
-    {% if node.field_page_type.value !='home' %}
-      <main role="main" class="module">
-        <a id="main-content" tabindex="-1">
-        </a>{# link is in html.html.twig #}
-        <div class="layout-content" class="quickedit-field">
-          {{ page.content }}
-        </div>{# /.layout-content #}
+{{kint(memberName)}}
+    <div class="member-profile-main-wraper">
+      <div class="member-profile-wraper" ">
+          <div class="user-profile-pic">
+            <img class="img" src="themes/custom/mendhru/images/dhangar-community.jpg" />
+          </div>
+          <div class="memberName">
+              {{memberName}}
+          </div>
 
-        {% if page.sidebar_first %}
-          <aside class="layout-sidebar-first" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endif %}
-        {% if page.sidebar_second %}
-          <aside class="layout-sidebar-second" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
-      </main>
-    {% endif %} 
+          <div class="member-profession">
+            Production Manager
+          </div>
+
+          <div class="memberEmail">
+              {{memberEmail}}
+          </div>
+
+
+          <div class="memberGender">
+              {{memberGender}}
+          </div>
+
+          <div class="row">
+            <div class="profile-card-coloumn">
+              Age
+            </div>
+
+            <div class="profile-card-coloumn">
+              Weight
+            </div>
+
+            <div class="profile-card-coloumn">
+              height
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="profile-card-coloumn">
+              28
+            </div>
+            <div class="profile-card-coloumn">
+              67 kg
+            </div>
+            <div class="profile-card-coloumn">
+            {{memberheight}} 
+            </div>
+          </div>
+
+          <div class="memberContact">
+              {{memberContact}}
+          </div>
+
+
+        
+
+
+          <div class="city">
+          Address
+          <div class="membercity">
+            {{membercity}}
+          </div>
+          </div>
+      </div>
+    </div>  
+
+
+
+   
 
     <div class="page-footer">
         {% if page.footer %}

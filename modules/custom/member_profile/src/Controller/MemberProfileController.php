@@ -7,20 +7,36 @@ use Symfony\Component\HttpFoundation\Response;
 class MemberProfileController{
     public function profile(){
         $userCurrent = \Drupal::currentUser();
-        //$user = Drupal\registrationform\Form::load($userCurrent->id());
-       // kint($userCurrent);
-//        $name = $userCurrent->getEmail();
-//        $emailId =
-//        $contactNumber=
-//        $city=
-//        $height=
-//        $dateOfBirth=
-//        $maritalStatus=
-//        $gender=
+        //$user = \Drupal\user\Entity\User::load($userCurrent->id());
+        $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+        $uuid = $user->uuid();
 
-        return array(
-           '#title'=> 'Hello world',
-            '#markup'=> $name,
-        );
+       $name = $user->getEmail();
+
+
+       $result = \Drupal::database()->select('registration','n')
+       ->fields( 'n',array('uuid', 'name', 'contact','city','height','gender','marital_status','member_dob'))
+       ->execute()->fetchAllAssoc('uuid');
+       //kint($result);
+
+
+       $rows = array();
+       foreach ($result as $row => $content) {
+         $rows[] = array(
+           'data' => array($content->name, $content->contact,$content->city,$content->height,$content->marital_status,$content->member_dob));
+
+       }
+       $header = array('name', 'contact','city','height','gender','marital_status','member_dob');
+       $output = array(
+         '#theme' => 'table',   
+         '#header' => $header,
+         '#rows' => $rows
+       );
+       return $output;
+
     }
+
+
+
+      
 }
