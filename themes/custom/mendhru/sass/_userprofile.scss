@@ -1,0 +1,85 @@
+.layout-container{
+    .member-profile-main-wraper{
+        margin: 20px auto;
+        width:80%;
+        height: 600px;
+        background-color: $white;
+
+        .member-profile-wraper{
+            height:600px; 
+            width:30%; 
+            border: 1px solid $lightgrey; 
+            background-color: $white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            .user-profile-pic{
+                margin: 10px auto;
+                width: 120px;
+                padding-top: 20px;
+                .img {
+                    border-radius: 50%;
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+            .member-profession{
+                width: fit-content;
+                margin:0px auto;
+            }
+            .profile-card-coloumn{
+                width: 30%;
+                text-align: center;
+                padding: 5px;
+                display: inline-block;
+            }
+    
+            .memberName{
+                margin-left: 145px;
+                margin-top: 5px;
+                color: $grey;
+                font-size: 35px
+            }
+    
+            .memberEmail{
+                margin-left: 116px;
+                margin-top: 1px;
+                color: $grey;
+                font-size: 16px;
+            }
+    
+            .memberGender{
+                margin-left: 164px;
+                margin-top: 3px;
+                color: $grey;
+                font-size: 17px;
+            }
+    
+            .memberAge{
+                margin-top: 40px;
+                margin-left: 35px;
+            }
+    
+            .memberWeight{
+                margin-left: 160px;
+                margin-top: -13px;
+            }
+    
+            .memberContact{
+                margin-top: 70px;
+                margin-left: 135px;
+                color: $grey;
+                font-size: 17px;
+            }
+            .membercity{
+                margin-top: 18px;
+                color: $grey;
+                font-size: 17px;
+            }
+        }
+
+    }
+    
+}
+
+
+
+

@@ -8,21 +8,33 @@ function getUserData(){
 
 
 
+
+ $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+$uuid = $user->uuid();
+kint($uuid);
+
+
+
+
+
 $result = \Drupal::database()->select('registration','n')
-       ->fields( 'n',array('uuid', 'name', 'contact','city','height','gender','marital_status','member_dob'))
-       ->execute()->fetchAllAssoc('uuid');
-      // kint($result);
+       ->fields( 'n',array('name', 'contact','email','city','height','gender','marital_status','member_dob'))
+       ->condition('uuid', $user->uuid())
+       ->execute();
+       kint($result);
 
 
-       $rows = array();
+     $rows = array();
        foreach ($result as $row => $content) {
          $rows['data'] = array(
            'memberName' =>$content->name,
+           'memberEmail' =>$content->email,
+           'memberGender' =>$content->gender,
          'memberContact' =>$content->contact,
          'memberheight' =>$content->height,
-
-           //array($content->name, $content->contact,$content->city,$content->height,$content->marital_status,$content->member_dob));
-       );
+         'membercity' => $content->city
+         );
+          
        }
 
 return $rows;
@@ -31,10 +43,13 @@ return $rows;
 
 
     function mendhru_preprocess_page__my_profile(&$variables) {
-        $userData = getUserData();
-      //  kint($userData );
+      $userData = getUserData();
+       kint($userData );
         $variables['memberName'] = $userData['data']['memberName'];
+        $variables['memberEmail'] = $userData['data']['memberEmail'];
+        $variables['memberGender'] = $userData['data']['memberGender'];
         $variables['memberContact'] = $userData['data']['memberContact'];
         $variables['memberheight'] = $userData['data']['memberheight'];
+        $variables['membercity'] = $userData['data']['membercity'];
     }
  

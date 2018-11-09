@@ -32,9 +32,7 @@
 
 
     {% if node.field_page_type.value =='home' %}
-      <div class="header_text">
-        Amhi Dhangar
-      </div>
+      
     {% endif %}
 
     {% if node.field_page_type.value =='home' %}
@@ -55,17 +53,70 @@
 
 
 {{kint(memberName)}}
-    <div class="member-profile-wraper" style="margin: 0px auto; height:600px; width:400px; border: 1px solid #c8c8c8; background-color: #ffffff;">
-        <div class="memberName">
-            {{memberName}}
-        </div>
-        <div class="memberName">
-            {{memberContact}}
-        </div>
-        <div class="memberName">
-            {{memberheights}}
-        </div>
-    </div>
+    <div class="member-profile-main-wraper">
+      <div class="member-profile-wraper" ">
+          <div class="user-profile-pic">
+            <img class="img" src="themes/custom/mendhru/images/dhangar-community.jpg" />
+          </div>
+          <div class="memberName">
+              {{memberName}}
+          </div>
+
+          <div class="member-profession">
+            Production Manager
+          </div>
+
+          <div class="memberEmail">
+              {{memberEmail}}
+          </div>
+
+
+          <div class="memberGender">
+              {{memberGender}}
+          </div>
+
+          <div class="row">
+            <div class="profile-card-coloumn">
+              Age
+            </div>
+
+            <div class="profile-card-coloumn">
+              Weight
+            </div>
+
+            <div class="profile-card-coloumn">
+              height
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="profile-card-coloumn">
+              28
+            </div>
+            <div class="profile-card-coloumn">
+              67 kg
+            </div>
+            <div class="profile-card-coloumn">
+            {{memberheight}} 
+            </div>
+          </div>
+
+          <div class="memberContact">
+              {{memberContact}}
+          </div>
+
+
+        
+
+
+          <div class="city">
+          Address
+          <div class="membercity">
+            {{membercity}}
+          </div>
+          </div>
+      </div>
+    </div>  
 
 
 
