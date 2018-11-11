@@ -1,16 +1,20 @@
 .layout-container{
-    .member-profile-main-wraper{
+    
+    .member-profile-wrapper{
         margin: 20px auto;
         width:80%;
         height: 600px;
+        display: flex;
         background-color: $white;
 
-        .member-profile-wraper{
+        .member-profile {
             height:600px; 
             width:30%; 
             border: 1px solid $lightgrey; 
+            position: relative;
             background-color: $white;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            display: inline-block;
             .user-profile-pic{
                 margin: 10px auto;
                 width: 120px;
@@ -21,60 +25,52 @@
                     height: 120px;
                 }
             }
-            .member-profession{
-                width: fit-content;
-                margin:0px auto;
-            }
             .profile-card-coloumn{
                 width: 30%;
                 text-align: center;
                 padding: 5px;
                 display: inline-block;
             }
-    
-            .memberName{
-                margin-left: 145px;
-                margin-top: 5px;
-                color: $grey;
-                font-size: 35px
+            .like-button{
+                width: 100%;
+                height: 40px;
+                bottom: 0px;
+                font-size: 20px;
+                font-weight: 600;
+                color: #ffff;
+                background-color: #ef62bc;
+                position: absolute;
             }
-    
-            .memberEmail{
-                margin-left: 116px;
-                margin-top: 1px;
-                color: $grey;
-                font-size: 16px;
-            }
-    
-            .memberGender{
-                margin-left: 164px;
-                margin-top: 3px;
-                color: $grey;
-                font-size: 17px;
-            }
-    
-            .memberAge{
-                margin-top: 40px;
-                margin-left: 35px;
-            }
-    
-            .memberWeight{
-                margin-left: 160px;
-                margin-top: -13px;
-            }
-    
-            .memberContact{
-                margin-top: 70px;
-                margin-left: 135px;
-                color: $grey;
-                font-size: 17px;
-            }
-            .membercity{
-                margin-top: 18px;
-                color: $grey;
-                font-size: 17px;
-            }
+
+
+
         }
+
+        .member-wall-wraper{
+            width:50%;
+            border: 1px solid $lightgrey; 
+            background-color: #c9c9c9;
+            display: inline-block;
+        }
+
+        .member-list-wraper{
+            width: 30%;
+            border: 1px solid $lightgrey; 
+            a{
+              text-decoration: none;
+              color: #5a5757;
+            }
+            .member-list{
+                height: 40px;
+                font-size: 20px;
+                font: 16px;
+                padding: 10px;
+                background-color: #f5f5f5;
+                border-bottom: 1px dotted #c8c8c8;
+            }
+
+        }
+        
 
     }
     

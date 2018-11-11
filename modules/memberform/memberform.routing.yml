@@ -5,4 +5,9 @@ memberform.form:
     _form: '\Drupal\memberform\Form\MemberForm'
   requirements:
     _permission: 'access content'
-   
+memberform.profileacitivity:
+  path: '/profile-activity'
+  defaults:
+    _controller: '\Drupal\memberform\Controller\ProfileActivity::registerProfileActivity'
+  requirements:
+    _permission: 'access content'
