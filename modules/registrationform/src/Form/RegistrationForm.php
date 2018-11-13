@@ -24,23 +24,23 @@
 
     $form['name'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Full Name'),
+      '#placeholder' => t('Full Name'),
     );
 
     $form['contact'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('mobile number'),
+      '#placeholder' => t('Mobile Number '),
     );
 
     $form['password'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Password'),
+      '#placeholder' => t('password'),
     );
-
+      
     $form['Submit'] = array(
       '#type' => 'submit',
       '#input'=> 'TRUE',
-      '#value' => $this->t('Join'),
+      '#value' => $this->t('Register'),
     );
 
     return $form;
@@ -85,7 +85,7 @@
     }
     $uuid =  $account->uuid();
     $registration_field = array(
-      'uuid' => $uuid,
+      'memberuuid' => $uuid,
       'name' =>  $name,
       'contact' =>  $contact,  
     );   

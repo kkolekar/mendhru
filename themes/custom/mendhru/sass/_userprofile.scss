@@ -42,8 +42,10 @@
                 position: absolute;
             }
 
-
-
+            .member-list-wraper{
+             width:100%;   
+            }
+            
         }
 
         .member-wall-wraper{
@@ -53,6 +55,7 @@
             display: inline-block;
         }
 
+        
         .member-list-wraper{
             width: 30%;
             border: 1px solid $lightgrey; 
