@@ -50,7 +50,7 @@
     <div class="secondary-menu">
       {{ page.secondary_menu }} 
     </div>
-
+ 
 
 
         <div class="member-profile-wrapper">
@@ -60,6 +60,7 @@
               <div class="user-profile-pic">
                 <img class="img" src="/sites/default/files/private/{{memberProfilePicture}}" />
               </div>
+              <div class="profile-name">
               <div>
                   {{memberName}}
               </div>
@@ -73,6 +74,7 @@
               </div>
               <div>
                   {{memberGender}}
+              </div>
               </div>
 
               <div class="row">
@@ -100,7 +102,7 @@
                 {{memberheight}} 
                 </div>
               </div>
-
+              <div class="member-pro">
               <div>
                 {{memberContact}}
               </div>
@@ -108,11 +110,15 @@
               <div>
                 {{membercity}}
               </div>
+              </div>
 
             <div class="member-list-wraper">
               {% for member in membersThoseWhoLiked %}
                   <div class="member-list" data-member-id="{{member.memberUuid}}">  
                     <a href="/my-profile?memberId={{member.memberUuid}}">
+                    <div class="member-profile-image-sm">
+                      <img class="img-sm" src="/sites/default/files/private/{{member.memberProfilePicture}}" />
+                    </div>  
                       {{member.memberName}}
                     </a> 
                   </div>
@@ -127,8 +133,7 @@
           <!--member-wall-starts-here-->
           <div class="member-wall-wraper">
              <div>
-            
-      
+              {{ drupal_view('latest_article') }}
              </div>
           </div>
           <!-- disply Member List -->
@@ -136,6 +141,9 @@
               {% for member in memberList %}
               <div class="member-list" data-member-id="{{member.memberUuid}}">  
                  <a href="/my-profile?memberId={{member.memberUuid}}">
+                 <div class="member-profile-image-sm">
+                   <img class="img-sm" src="/sites/default/files/private/{{member.memberProfilePicture}}" />
+                  </div>
                   {{member.memberName}}
                  </a> 
               </div>
