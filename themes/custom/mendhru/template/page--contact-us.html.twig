@@ -55,10 +55,13 @@
 
   <a id="main-content" tabindex="-1">
   </a>{# link is in html.html.twig #}
-
+  
   <div class="layout-content" class="quickedit-field" >
+  <div class="cover">
     {{ page.content }}
+    </div>
   </div>{# /.layout-content #}
+  
   
   {% if page.sidebar_first %}
     <aside class="layout-sidebar-first" role="complementary">

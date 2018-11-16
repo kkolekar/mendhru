@@ -1,0 +1,44 @@
+.contact_page{
+    background: #e4e4e44f;
+}
+.cover{
+    border-right: 2px solid #c4c4c4;
+    margin-right: 261px;
+}
+.layout-content{
+    border: 1px solid #c4c4c4;
+    width: 40%;
+    height: 568px;
+    margin: 0px 17px;
+    padding: 20px;
+    float: right;
+}
+#edit-name,#edit-contact  {
+    display: block;
+    width: 88%;
+    height: 40px;
+    margin: 10px;
+   
+}
+
+#edit-message{
+    width: 88%;
+    height: 249px;
+    display: block;
+    margin: 10px;
+    
+}
+#edit-submit{
+    margin: 0px auto;
+    width: 100px;
+    display: block;
+    height: 45px;
+    font-size: 22px;
+    color: darkgray;
+    
+}
+label{
+    font-size: x-large;
+    margin: 0px 10px;
+    color: #989797;
+}
