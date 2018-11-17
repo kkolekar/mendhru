@@ -1,30 +1,38 @@
 <?php
+    //function for get current user
+ function getCurrentUser(){
+      $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+      $uuid = $user->uuid();
+
+      $memberId = $_GET['memberId'];
+      if($memberId != ''){
+      $uuid = $memberId;
+
+     }
+  return $uuid;
+ }
 
 /**
  * @file
  * Functions to support theming in the mendhru theme.
  */
+ 
 function getUserData(){
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    $uuid = $user->uuid();
-    $memberId = $_GET['memberId'];
-    if($memberId != ''){
-     $uuid = $memberId;
-   }
+   $uuid=getCurrentUser();
     $result = \Drupal::database()->select('registration','n')
-          ->fields( 'n',array('name', 'contact','email','city','height','gender','marital_status','member_dob'))
-          ->condition('uuid', $uuid)
+          ->fields( 'n',array('name', 'contact','email','city','height','gender','marital_status','member_dob','member_profile_picture'))
+          ->condition('memberuuid', $uuid)
           ->execute();
-
-        $rows = array();
-           foreach ($result as $row => $content) {
+            $rows = array();
+            foreach ($result as $row => $content) {
             $rows['data'] = array(
-            'memberName' =>$content->name,
-            'memberEmail' =>$content->email,
-            'memberGender' =>$content->gender,
-            'memberContact' =>$content->contact,
-            'memberheight' =>$content->height,
-            'membercity' => $content->city
+                  'memberName' =>$content->name,
+                  'memberEmail' =>$content->email,
+                  'memberGender' =>$content->gender,
+                  'memberContact' =>$content->contact,
+                  'memberheight' =>$content->height,
+                  'membercity' => $content->city,
+                  'memberProfilePicture' => $content->member_profile_picture
             );
               
           }
@@ -33,19 +41,21 @@ return $rows;
 }
 
 function getMemberList(){
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $uuid = $user->uuid();
 
- $userList= \Drupal::database()->select('registration','n')
-          ->fields( 'n',array('name','uuid'))
-          ->execute()
-          ->fetchAll();
-          $members = array();
-          foreach ($userList as $row => $content) {
-          $member = array(
-          'memberName' =>$content->name,
-          'memberUuid' => $content->uuid
-    );
-    array_push($members,$member);
-      
+      $userList= \Drupal::database()->select('registration','n')
+                  ->fields( 'n',array('name','memberuuid'))
+                  ->condition('memberuuid',$uuid,'!=')
+                  ->execute();
+                 // kint($userList);
+                  $members = array();
+                  foreach ($userList as $row => $content) {
+                  $member = array(
+                      'memberName' =>$content->name,
+                      'memberUuid' => $content->memberuuid
+                  );
+         array_push($members,$member);
   }
   return $members;
 }
@@ -53,6 +63,7 @@ function getMemberList(){
     function mendhru_preprocess_page__my_profile(&$variables) {
         $userData = getUserData();
         $members = getMemberList();
+        $variables['membersThoseWhoLiked'] = getMemberLike();;
         $variables['memberList'] = $members;
         $variables['memberName'] = $userData['data']['memberName'];
         $variables['memberEmail'] = $userData['data']['memberEmail'];
@@ -60,5 +71,28 @@ function getMemberList(){
         $variables['memberContact'] = $userData['data']['memberContact'];
         $variables['memberheight'] = $userData['data']['memberheight'];
         $variables['membercity'] = $userData['data']['membercity'];
+        $variables['memberProfilePicture'] = $userData['data']['memberProfilePicture'];
+        
     }
- 
+
+    function getMemberLike(){
+
+     $uuid=getCurrentUser();
+        $members = array();
+        $query_member = \Drupal::database()->select('registration','r')
+        ->fields('r',array('name','memberuuid'));
+        $query_member->addjoin('inner','profilecredit', 'p', 'r.memberuuid = p.viewermemberuuid');
+        $query_member->condition('p.memberuuid',$uuid);
+        $data = $query_member->execute();
+        //kint($data);
+        $results = $data->fetchAll(\PDO::FETCH_OBJ);
+        foreach ($results as $row => $content) {
+        $member = array(
+            'memberName'=>$content->name,
+            'memberUuid'=>$content->memberuuid
+         );
+       array_push($members, $member );
+    }
+     return  $members;
+   
+  }

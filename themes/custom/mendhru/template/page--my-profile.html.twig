@@ -56,8 +56,9 @@
         <div class="member-profile-wrapper">
           <!-- member profile start here -->
             <div class="member-profile">
+            
               <div class="user-profile-pic">
-                <img class="img" src="themes/custom/mendhru/images/dhangar-community.jpg" />
+                <img class="img" src="/sites/default/files/private/{{memberProfilePicture}}" />
               </div>
               <div>
                   {{memberName}}
@@ -103,22 +104,34 @@
               <div>
                 {{memberContact}}
               </div>
-
+              
               <div>
                 {{membercity}}
               </div>
 
+            <div class="member-list-wraper">
+              {% for member in membersThoseWhoLiked %}
+                  <div class="member-list" data-member-id="{{member.memberUuid}}">  
+                    <a href="/my-profile?memberId={{member.memberUuid}}">
+                      {{member.memberName}}
+                    </a> 
+                  </div>
+              {% endfor %}
+             </div>
+
             <button class="like-button">Like</button>
 
-            </div>  
+            </div>
           <!-- profile ends here -->
-          
+
           <!--member-wall-starts-here-->
           <div class="member-wall-wraper">
              <div>
+            
       
              </div>
           </div>
+          <!-- disply Member List -->
           <div class="member-list-wraper">
               {% for member in memberList %}
               <div class="member-list" data-member-id="{{member.memberUuid}}">  
@@ -131,8 +144,6 @@
         </div>  
 
 
-
-   
 
     <div class="page-footer">
         {% if page.footer %}

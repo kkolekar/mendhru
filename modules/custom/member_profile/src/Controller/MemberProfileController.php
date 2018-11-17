@@ -15,8 +15,8 @@ class MemberProfileController{
 
 
        $result = \Drupal::database()->select('registration','n')
-       ->fields( 'n',array('uuid', 'name', 'contact','city','height','gender','marital_status','member_dob'))
-       ->execute()->fetchAllAssoc('uuid');
+       ->fields( 'n',array('memberuuid', 'name', 'contact','city','height','gender','marital_status','member_dob'))
+       ->execute()->fetchAllAssoc('memberuuid');
        //kint($result);
 
 
