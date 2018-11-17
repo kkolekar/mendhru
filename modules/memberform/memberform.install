@@ -113,6 +113,44 @@
     ),
     'primary key' => array('id'),
   );
+
+   $schema['profilecredit'] = array(
+    'description' => 'Profile  credit table',
+
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => "Creator user id ",
+      ),
+
+      'credittype' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ),
+
+      'memberuuid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'uuid of the person.',
+      ),
+
+      'viewermemberuuid' => array(
+       'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ),
+    ),
+     'primary key' => array('id'),
+   );  
+
   return $schema;
 }
 /**

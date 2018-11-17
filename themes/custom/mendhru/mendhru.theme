@@ -5,46 +5,55 @@
  * Functions to support theming in the mendhru theme.
  */
 function getUserData(){
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $uuid = $user->uuid();
+    $memberId = $_GET['memberId'];
+    if($memberId != ''){
+     $uuid = $memberId;
+   }
+    $result = \Drupal::database()->select('registration','n')
+          ->fields( 'n',array('name', 'contact','email','city','height','gender','marital_status','member_dob'))
+          ->condition('uuid', $uuid)
+          ->execute();
 
-
-
-
- $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-$uuid = $user->uuid();
-kint($uuid);
-
-
-
-
-
-$result = \Drupal::database()->select('registration','n')
-       ->fields( 'n',array('name', 'contact','email','city','height','gender','marital_status','member_dob'))
-       ->condition('uuid', $user->uuid())
-       ->execute();
-       kint($result);
-
-
-     $rows = array();
-       foreach ($result as $row => $content) {
-         $rows['data'] = array(
-           'memberName' =>$content->name,
-           'memberEmail' =>$content->email,
-           'memberGender' =>$content->gender,
-         'memberContact' =>$content->contact,
-         'memberheight' =>$content->height,
-         'membercity' => $content->city
-         );
-          
-       }
-
+        $rows = array();
+           foreach ($result as $row => $content) {
+            $rows['data'] = array(
+            'memberName' =>$content->name,
+            'memberEmail' =>$content->email,
+            'memberGender' =>$content->gender,
+            'memberContact' =>$content->contact,
+            'memberheight' =>$content->height,
+            'membercity' => $content->city
+            );
+              
+          }
+      
 return $rows;
-
 }
 
+function getMemberList(){
+
+ $userList= \Drupal::database()->select('registration','n')
+          ->fields( 'n',array('name','uuid'))
+          ->execute()
+          ->fetchAll();
+          $members = array();
+          foreach ($userList as $row => $content) {
+          $member = array(
+          'memberName' =>$content->name,
+          'memberUuid' => $content->uuid
+    );
+    array_push($members,$member);
+      
+  }
+  return $members;
+}
 
     function mendhru_preprocess_page__my_profile(&$variables) {
-      $userData = getUserData();
-       kint($userData );
+        $userData = getUserData();
+        $members = getMemberList();
+        $variables['memberList'] = $members;
         $variables['memberName'] = $userData['data']['memberName'];
         $variables['memberEmail'] = $userData['data']['memberEmail'];
         $variables['memberGender'] = $userData['data']['memberGender'];

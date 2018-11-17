@@ -52,71 +52,83 @@
     </div>
 
 
-{{kint(memberName)}}
-    <div class="member-profile-main-wraper">
-      <div class="member-profile-wraper" ">
-          <div class="user-profile-pic">
-            <img class="img" src="themes/custom/mendhru/images/dhangar-community.jpg" />
+
+        <div class="member-profile-wrapper">
+          <!-- member profile start here -->
+            <div class="member-profile">
+              <div class="user-profile-pic">
+                <img class="img" src="themes/custom/mendhru/images/dhangar-community.jpg" />
+              </div>
+              <div>
+                  {{memberName}}
+              </div>
+
+              <div>
+                Production Manager
+              </div>
+
+              <div>
+                  {{memberEmail}}
+              </div>
+              <div>
+                  {{memberGender}}
+              </div>
+
+              <div class="row">
+                <div class="profile-card-coloumn">
+                  Age
+                </div>
+
+                <div class="profile-card-coloumn">
+                  Weight
+                </div>
+
+                <div class="profile-card-coloumn">
+                  height
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="profile-card-coloumn">
+                  28
+                </div>
+                <div class="profile-card-coloumn">
+                  67 kg
+                </div>
+                <div class="profile-card-coloumn">
+                {{memberheight}} 
+                </div>
+              </div>
+
+              <div>
+                {{memberContact}}
+              </div>
+
+              <div>
+                {{membercity}}
+              </div>
+
+            <button class="like-button">Like</button>
+
+            </div>  
+          <!-- profile ends here -->
+          
+          <!--member-wall-starts-here-->
+          <div class="member-wall-wraper">
+             <div>
+      
+             </div>
           </div>
-          <div class="memberName">
-              {{memberName}}
+          <div class="member-list-wraper">
+              {% for member in memberList %}
+              <div class="member-list" data-member-id="{{member.memberUuid}}">  
+                 <a href="/my-profile?memberId={{member.memberUuid}}">
+                  {{member.memberName}}
+                 </a> 
+              </div>
+              {% endfor %}
           </div>
-
-          <div class="member-profession">
-            Production Manager
-          </div>
-
-          <div class="memberEmail">
-              {{memberEmail}}
-          </div>
-
-
-          <div class="memberGender">
-              {{memberGender}}
-          </div>
-
-          <div class="row">
-            <div class="profile-card-coloumn">
-              Age
-            </div>
-
-            <div class="profile-card-coloumn">
-              Weight
-            </div>
-
-            <div class="profile-card-coloumn">
-              height
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="profile-card-coloumn">
-              28
-            </div>
-            <div class="profile-card-coloumn">
-              67 kg
-            </div>
-            <div class="profile-card-coloumn">
-            {{memberheight}} 
-            </div>
-          </div>
-
-          <div class="memberContact">
-              {{memberContact}}
-          </div>
-
-
-        
-
-
-          <div class="city">
-          Address
-          <div class="membercity">
-            {{membercity}}
-          </div>
-          </div>
-      </div>
-    </div>  
+        </div>  
 
 
 
@@ -129,6 +141,7 @@
           </footer>
         {% endif %}
     </div>
+
     <div class="footer">
       <div class="footer-menu">
         {% if page.footer_first %}
@@ -139,5 +152,6 @@
         {% endif %}    
       </div>    
     </div>
+
   </div>{# /.layout-container #}
 </div>
