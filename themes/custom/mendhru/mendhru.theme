@@ -45,7 +45,7 @@ function getMemberList(){
     $uuid = $user->uuid();
 
       $userList= \Drupal::database()->select('registration','n')
-                  ->fields( 'n',array('name','memberuuid'))
+                  ->fields( 'n',array('name','memberuuid','member_profile_picture'))
                   ->condition('memberuuid',$uuid,'!=')
                   ->execute();
                  // kint($userList);
@@ -53,7 +53,8 @@ function getMemberList(){
                   foreach ($userList as $row => $content) {
                   $member = array(
                       'memberName' =>$content->name,
-                      'memberUuid' => $content->memberuuid
+                      'memberUuid' => $content->memberuuid,
+                      'memberProfilePicture'=>$content->member_profile_picture
                   );
          array_push($members,$member);
   }
@@ -72,7 +73,7 @@ function getMemberList(){
         $variables['memberheight'] = $userData['data']['memberheight'];
         $variables['membercity'] = $userData['data']['membercity'];
         $variables['memberProfilePicture'] = $userData['data']['memberProfilePicture'];
-        
+        $variables['Dhangar_Block_view']='Dhangar_Block_view';
     }
 
     function getMemberLike(){
@@ -80,7 +81,7 @@ function getMemberList(){
      $uuid=getCurrentUser();
         $members = array();
         $query_member = \Drupal::database()->select('registration','r')
-        ->fields('r',array('name','memberuuid'));
+        ->fields('r',array('name','memberuuid','member_profile_picture'));
         $query_member->addjoin('inner','profilecredit', 'p', 'r.memberuuid = p.viewermemberuuid');
         $query_member->condition('p.memberuuid',$uuid);
         $data = $query_member->execute();
@@ -89,7 +90,8 @@ function getMemberList(){
         foreach ($results as $row => $content) {
         $member = array(
             'memberName'=>$content->name,
-            'memberUuid'=>$content->memberuuid
+            'memberUuid'=>$content->memberuuid,
+            'memberProfilePicture'=>$content->member_profile_picture
          );
        array_push($members, $member );
     }
