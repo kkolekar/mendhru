@@ -7,4 +7,9 @@ global-js:
   js:
     js/main.js: {}
   dependencies:
-    - core/jquery           
+    - core/jquery
+               
+contactform-css:
+  css:
+    theme:
+      lib/css/style.css: {}
