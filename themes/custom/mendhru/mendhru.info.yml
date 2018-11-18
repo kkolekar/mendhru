@@ -6,6 +6,8 @@ libraries:
   - mendhru/global-css
   - mendhru/global-js
   - mendhru/contactform-css
+  - mendhru/profile-css
+  
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'

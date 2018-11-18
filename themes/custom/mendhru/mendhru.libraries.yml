@@ -13,3 +13,10 @@ contactform-css:
   css:
     theme:
       lib/css/style.css: {}
+profile-css:
+  css:
+    theme:
+      lib/css/profile.css: {}
+
+
+       
