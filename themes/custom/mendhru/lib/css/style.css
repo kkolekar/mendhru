@@ -1,44 +1,67 @@
-.contact_page{
-    background: #e4e4e44f;
+.contact_page #block-mainmenubar{
+    border: none;
 }
-.cover{
-    border-right: 2px solid #c4c4c4;
-    margin-right: 261px;
+.contact_page .layout-content{
+    max-width: 500px;
+    margin: 0px auto;
+    padding: 50px;
+    background: #ffffff;
+    border: 10px solid #f2f2f2;
+    height: 596px; 
+    
 }
-.layout-content{
-    border: 1px solid #c4c4c4;
-    width: 40%;
-    height: 568px;
-    margin: 0px 17px;
-    padding: 20px;
-    float: right;
-}
-#edit-name,#edit-contact  {
-    display: block;
-    width: 88%;
-    height: 40px;
-    margin: 10px;
-   
+.contact_page #edit-name,#edit-contact  {
+    width: 100%; 
+    margin: 25px auto;
+    padding: 4px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-size: 15px
 }
 
-#edit-message{
-    width: 88%;
+.contact_page #edit-message{
+    width: 100%;
     height: 249px;
     display: block;
-    margin: 10px;
+    margin: 10px auto;
+    font-size: 15px;
     
 }
-#edit-submit{
-    margin: 0px auto;
-    width: 100px;
-    display: block;
-    height: 45px;
-    font-size: 22px;
-    color: darkgray;
+.contact_page #edit-submit{
+    color: #FFF;
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+    height: 50px;
+    margin: 25px auto;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    width: 100%;
+    display: -webkit-box;
     
 }
-label{
+.contact_page label{
     font-size: x-large;
     margin: 0px 10px;
     color: #989797;
+}
+
+/*for mobile view*/
+
+@media screen and (max-width: 1100px){
+    .contact_page .layout-content{
+        height: 596px; 
+    } 
+    
+    .contact_page #edit-message{
+        height: 173px;
+    }
+    .contact_page #edit-name,#edit-contact{
+        margin: 17px auto;
+    }
 }
