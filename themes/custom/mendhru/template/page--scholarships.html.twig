@@ -5,7 +5,7 @@
       <a href="#">Features</a>
       <a href="#">Contact Us</a>
     </div>
-    
+      
     <nav class="topnav">
       <a href="#">
         <svg width="30" height="30" id="icoOpen">
@@ -53,12 +53,13 @@
     <main role="main">
       <a id="main-content" tabindex="-1">
       </a>{# link is in html.html.twig #}
-      <div class="form_cover">
+
+      <div class="scholarship_form">
         <div class="layout-content" class="quickedit-field">
           {{ page.content }}
-        </div>
-      </div>
-
+        </div> {# /.layout-content #}
+      </div> {# /.scholarship_form #}
+    
       {% if page.sidebar_first %}
         <aside class="layout-sidebar-first" role="complementary">
           {{ page.sidebar_first }}

@@ -7,6 +7,9 @@ libraries:
   - mendhru/global-js
   - mendhru/contactform-css
   - mendhru/profile-css
+  - mendhru/registration-css
+  - mendhru/member-css
+  - mendhru/scholarship-css
   
 regions:
   header: 'Header'
