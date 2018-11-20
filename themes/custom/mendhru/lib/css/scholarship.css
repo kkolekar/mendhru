@@ -1,0 +1,81 @@
+.scholarship_form{
+    margin: 10px auto;
+    width:25%;
+    height: 947px;
+    border: 10px solid #f2f2f2;
+}
+
+.scholarship_form .form-textarea{
+    display: block;
+    font-size: 15px;
+    width: 84%;
+    border-radius: 4px;
+    margin: 0px 37px;   
+}
+
+.scholarship_form #edit-submit{
+    margin: 52px auto;
+}
+
+.scholarship_form .form-text{
+    margin-left: 40px;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid;
+    font-size: 15px  ;   
+}
+
+.scholarship_form .form-select{
+    margin-left: 40px;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid;
+    font-size: 15px  ; 
+    margin-top: 2px
+}
+
+.scholarship_form #edit-candidate-dob{
+    width: 350px;
+    border-radius: 5px;
+    height: 36px;
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.scholarship_form #edit-submit {
+    color: #FFF;
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+    display: inline-block;
+    height: 35px;
+    padding: 0 30px;
+    text-align: center;
+    margin: 4px auto;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    border: 1px solid #bbb;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.scholarship_form label{
+    font-size: 15px;
+    margin-left: 40px;
+}
+
+.scholarship_form .form-file{
+    position: absolute;
+    margin-top: 532px;
+    margin-left: 40px;
+}
+
+.scholarship_form .js-form-item-files-uploaded-file{
+    margin: 23px auto;
+}

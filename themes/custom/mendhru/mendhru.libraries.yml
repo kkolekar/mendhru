@@ -13,3 +13,25 @@ contactform-css:
   css:
     theme:
       lib/css/style.css: {}
+      
+profile-css:
+  css:
+    theme:
+      lib/css/profile.css: {}
+
+registration-css:
+  css:
+    theme:
+      lib/css/registration.css: {}
+
+member-css:
+  css:
+    theme:
+      lib/css/member.css: {}    
+
+scholarship-css:
+  css:
+    theme:
+      lib/css/scholarship.css: {}   
+
+       
