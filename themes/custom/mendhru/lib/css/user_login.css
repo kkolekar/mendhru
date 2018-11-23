@@ -1,0 +1,9 @@
+ .form-text{
+    width: 100%;
+    margin: 25px auto;
+    padding: 4px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-size: 15px;
+}
