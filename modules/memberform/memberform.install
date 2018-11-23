@@ -71,44 +71,20 @@
         'description' => 'city of the person.',
       ),
 
-      'profile' => array(
+       'state' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
         'default' => '',
-        'description' => 'profile of the person.',
+        'description' => 'statess of the person.',
       ),
 
-      'height' => array(
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => TRUE,
-        'default' => '',
-        'description' => 'height of the person.',
-      ),
-
-      'marital_status' => array(
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => TRUE,
-        'default' => '',
-        'description' => 'marital status of the person.',
-      ),
-  
       'gender' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => TRUE,
         'default' => '',
         'description' => 'gender of the person.',
-      ),
-
-      'religion' => array(
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => TRUE,
-        'default' => '',
-        'description' => 'religion of the person.',
       ),
 
         'member_profile_picture' => array(

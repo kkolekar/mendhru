@@ -7,6 +7,8 @@
       $memberId = $_GET['memberId'];
       if($memberId != ''){
       $uuid = $memberId;
+      kint($uuid);
+ 
 
      }
   return $uuid;
@@ -20,7 +22,7 @@
 function getUserData(){
    $uuid=getCurrentUser();
     $result = \Drupal::database()->select('registration','n')
-          ->fields( 'n',array('name', 'contact','email','city','height','gender','marital_status','member_dob','member_profile_picture'))
+          ->fields( 'n',array('name', 'contact','email','city','gender','member_dob','member_profile_picture'))
           ->condition('memberuuid', $uuid)
           ->execute();
             $rows = array();
@@ -30,7 +32,6 @@ function getUserData(){
                   'memberEmail' =>$content->email,
                   'memberGender' =>$content->gender,
                   'memberContact' =>$content->contact,
-                  'memberheight' =>$content->height,
                   'membercity' => $content->city,
                   'memberProfilePicture' => $content->member_profile_picture
             );
@@ -70,7 +71,6 @@ function getMemberList(){
         $variables['memberEmail'] = $userData['data']['memberEmail'];
         $variables['memberGender'] = $userData['data']['memberGender'];
         $variables['memberContact'] = $userData['data']['memberContact'];
-        $variables['memberheight'] = $userData['data']['memberheight'];
         $variables['membercity'] = $userData['data']['membercity'];
         $variables['memberProfilePicture'] = $userData['data']['memberProfilePicture'];
         $variables['Dhangar_Block_view']='Dhangar_Block_view';

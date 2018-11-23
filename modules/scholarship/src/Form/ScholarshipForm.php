@@ -123,11 +123,11 @@
         '#required' => TRUE,
       );
     
-      $form['uploaded_file'] = array(
+     /*  $form['uploaded_file'] = array(
         '#type' => 'file',
         '#title' => t('Upload your file'),
         '#required' => true
-      );
+      ); */
 
       $form['Submit'] = array(
         '#type' => 'submit',
@@ -153,11 +153,6 @@
       $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
       $id = $user->id();
       $name = $form_state->getValue('name'); 
-      $name = $form_state->getValue('name'); 
-      $name = $form_state->getValue('name'); 
-      $uploaded_file=$uploaded_file->getValue('uploaded_file');   
-      $uploaded_file=$uploaded_file->getValue('uploaded_file');   
-      $uploaded_file=$uploaded_file->getValue('uploaded_file');   
       $gender = $form_state->getValue('gender');
       $Citizenship = $form_state->getValue('Citizenship');
       $email = $form_state->getValue('email');
@@ -171,8 +166,6 @@
       $marital_status = $form_state->getValue('marital_status');
       $award = $form_state->getValue('award');
       $dob = $form_state->getValue('candidate_dob');    
-      $dob = $form_state->getValue('candidate_dob');    
-      $dob = $form_state->getValue('candidate_dob');    
       $dob = date_create($dob);
       $dob = date_timestamp_get($dob);
 
@@ -180,7 +173,6 @@
       ->fields(array(
       'id' =>$user->id, 
       'name' => $name,
-      'uploaded_file' => $uploaded_file,
       'gender' => $gender,
       'Citizenship' => $Citizenship,
       'email' => $email,
@@ -196,7 +188,6 @@
       'member_dob' => $dob
       ))->execute();
       drupal_set_message("successfully submitted ");  
-      drupal_set_message("successfully submitted "); 
-      drupal_set_message("successfully submitted ");  
+       
     }
   }

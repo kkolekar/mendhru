@@ -47,44 +47,9 @@
       '#placeholder' => t('City'),
     );
 
-    $form['height'] = array(
+    $form['state'] = array(
       '#type' => 'textfield',
-      '#placeholder' => t('Height'),
-    );
-
-    $form['candidate_dob'] = array (
-      '#type' => 'date',
-      '#title' => t('DOB'),
-      '#required' => TRUE,
-    );
-
-    $form['profile'] = array(
-      '#type' => 'select',
-      //'#title' => t('Created_By'),
-      '#options' => array(
-        'AP' => t('Created_By'),
-        'Self' => t('Self'),
-        'Son' => t('Son'),
-        'Daughter' => t('Daughter'),
-        'Relative/friend' => t('Relative/friend'),
-        'Sister' => t('Sister'),
-        'Brother' => t('Brother'),
-        'Client-Marriage Bureau' => t('Client-Marriage Bureau')
-        
-      )
-    );
-
-    $form['marital_status'] = array(
-      '#type' => 'select',
-      //'#title' => t('marital_status'),
-      '#options' => array(
-        'AP' => t('marital_status'),
-        'Married' => t('Married'),
-        'Never Married' => t('Never Married'),
-        'Awaiting Divarce' => t('Awaiting Divarce'),
-        'Divarce' => t('Divarce'),
-        'Widowed' => t('Widowed')
-      )
+      '#placeholder' => t('State'),
     );
 
     $form['gender'] = array(
@@ -97,23 +62,13 @@
       )
     );
 
-    $form['religion'] = array(
-      '#type' => 'select',
-      //'#title' => t('Religion'),
-      '#options' => array(
-        'AZ' => t('Religion'),
-        'Hindu' => t('Hindu'),
-        'Muslim' => t('Muslim'),
-        'Sikh' => t('Sikh'),
-        'Christion' => t('Christion'),
-        'Buddhist' => t('Buddhist'),
-        'Jain' => t('Jain'),
-        'Parsi' => t('Parsi'),
-        'Jewish' => t('Jewish'),
-        'Bahai' => t('Bahai')
-      )
+    $form['candidate_dob'] = array (
+      '#type' => 'date',
+      '#title' => t('DOB'),
+      '#required' => TRUE,
     );
 
+    
     $form['profile_picture'] = array(
       '#type' => 'managed_file',
       '#title' => t(''),
@@ -151,11 +106,8 @@
     $email = $form_state->getValue('email');
     $password = $form_state->getValue('password');
     $city = $form_state->getValue('city');
-    $height = $form_state->getValue('height');
-    $profile = $form_state->getValue('profile');
-    $marital_status = $form_state->getValue('marital_status');
+    $state = $form_state->getValue('state');
     $gender = $form_state->getValue('gender');
-    $religion = $form_state->getValue('religion');
     $dob = $form_state->getValue('candidate_dob');
     $dob = date_create($dob);
     $dob = date_timestamp_get($dob);
@@ -168,11 +120,8 @@
       'email' =>  $email,
       'password' => $password = md5($password),
       'city' =>  $city,
-      'height' =>  $height,
-      'profile' =>  $profile,
-      'marital_status' => $marital_status,
+      'state' =>  $state,
       'gender' =>  $gender,
-      'religion' => $religion,
       'member_dob' => $dob,
       'member_profile_picture' =>$file
     );      
