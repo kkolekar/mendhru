@@ -1,7 +1,7 @@
 .form_cover{
     margin: 10px auto;
     width:25%;
-    height: 633px;
+    height: 535px;
     border : 10px solid #f2f2f2;
 }
 
@@ -39,10 +39,10 @@
     background-color: #33C3F0;
     border-color: #33C3F0;
     display: inline-block;
-    height: 38px;
+    height: 45px;
     padding: 0 30px;
     text-align: center;
-    margin: 33px auto;
+    margin: 80px auto;
     font-size: 15px;
     font-weight: 600;
     line-height: 38px;
@@ -60,7 +60,7 @@
 
 .form_cover .form-file{
     position: absolute;
-    margin-top: 532px;
+    margin-top: 400px;
     margin-left: 40px;
 }
 /*for mobile view*/

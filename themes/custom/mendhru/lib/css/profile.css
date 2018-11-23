@@ -13,7 +13,7 @@
     padding: 15px;
 }
 
-.views-field-body-1{
+.member-wall-wraper .views-field-body{
     font-size: 16px;
     font-weight: 100;
     font-family: sans-serif;
@@ -25,7 +25,7 @@
     background-color: white;    
 }
 
-.views-field-field-image{
+.member-wall-wraper .views-field-field-image{
     background-color: white;
     padding: 15px;
     border-bottom: 1px solid #c8c8c8;
@@ -55,7 +55,7 @@
     display: none;
 }
 
-.views-field-field-comment{
+.member-profile-wrapper .views-field-comment{
     background-color: #fff;
     border: 1px solid #c8c8c8;
     border-top: 0px solid #fff;
@@ -64,24 +64,10 @@
     padding: 10px;
 }
 
-.form-textarea{
-    width: 100%;
-    border-radius: 4px;
-}
-
-.by-viewer {
+.member-profile-wrapper .by-viewer {
     border-bottom: 1px solid #c4c4c4;
     margin: 10px 0px;
     padding: 10px 0px;
-}
-
-.member-wall-wraper #edit-submit{
-    height: 24px;
-    width: 12%;
-    margin: auto;
-    display: unset;
-    font-size: 12px;
-    color: black;
 }
 
 .member-wall-wraper .post_bar{
@@ -91,6 +77,15 @@
     padding: 10px;
     margin: 10px 6px;
     background: white;
+}
+.member-wall-wraper .form-text{
+    display: -webkit-box;
+    width: 100%;
+    height: 100px;
+    border-radius: 4px;
+    border-top: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;
+    margin: 5px auto;
 }
 
 .member-wall-wraper #post_bar{

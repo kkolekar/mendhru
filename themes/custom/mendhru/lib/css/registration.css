@@ -21,6 +21,16 @@
     font-size: 15px;
 }
 
+.Registration_form .form-text{
+    width: 100%;
+    margin: 25px auto;
+    padding: 4px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-size: 15px;
+}
+
 .Registration_form #edit-contact{
     width: 100%; 
     margin: 25px auto;
