@@ -1,0 +1,25 @@
+dhangarmatrimony.form:
+  path: '/Matrimony-profile'
+  defaults:
+    _title: 'Sign Up For Dhangar Matrimony'
+    _form: '\Drupal\Matrimony_profile\Form\Basic_detail_Form'
+  requirements:
+    _permission: 'access content'
+
+Professional_detail_Form.form:
+  path: '/member-education'
+  defaults:
+    _title: 'Sign Up For Dhangar Matrimony'
+    _form: '\Drupal\Matrimony_profile\Form\Professional_detail_Form'
+  requirements:
+    _permission: 'access content'
+    
+Family_Detail_Form.form:
+  path: '/member-family'
+  defaults:
+    _title: 'Sign Up For Dhangar Matrimony'
+    _form: '\Drupal\Matrimony_profile\Form\Family_Detail_Form'
+  requirements:
+    _permission: 'access content'
+
+    

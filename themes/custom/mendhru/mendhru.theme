@@ -74,6 +74,7 @@ function getMemberList(){
         $variables['membercity'] = $userData['data']['membercity'];
         $variables['memberProfilePicture'] = $userData['data']['memberProfilePicture'];
         $variables['Dhangar_Block_view']='Dhangar_Block_view';
+        $variables['path']=$_SERVER['REQUEST_URI'];
     }
 
     function getMemberLike(){

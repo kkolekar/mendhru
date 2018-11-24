@@ -1,0 +1,326 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the memberform module.
+ */
+
+  function Matrimony_profile_schema_mendhrudb() {
+    $schema['Matri_Memb_basicdetail'] = array(
+      'description' => 'My table description',
+
+    'fields' => array(
+          'id' => array(
+          'type' => 'serial',
+          'not null' => TRUE,
+          'description' => "Creator user id ",
+        ),
+
+        'memberuuid' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'uuid of the person.',
+        ),
+
+          'profile' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'profile of the person.',
+        ),
+      
+        'name' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'name of the person.',
+        ),
+
+          'member_dob' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'birthdate  of the person.',
+        ),
+          'height' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'height of the person.',
+        ),
+
+        'weight' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'weight of the person.',
+        ),
+         'Caste' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'caste of the person.',
+        ),
+
+         'marital_status' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'marital_statusof the person.',
+        ),
+
+
+        'Body_type' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'body type of the person.',
+        ),
+          
+        'Complexion' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Complexionof the person.',
+        ),
+
+        'Physical_status' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Physical status of the person.',
+        ),
+
+
+          'Mother_tongue' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Mother tongue of the person.',
+        ),
+
+          'Eating_habits' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Eating habits of the person.',
+        ),
+
+        'Drinking_habits' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Drinking habitsof the person.',
+        ),
+
+         'Smoking_habits' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+          'default' => '',
+          'description' => 'Smoking habits of the person.',
+        ),
+      ),
+      'primary key' => array('id'),
+    );
+
+ $schema['Matri_Memb_Professionaldetail'] = array(
+      'description' => 'My table description',
+
+      'fields' => array(
+        'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => "Creator user id ",
+      ),
+
+      'memberuuid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'uuid of the person.',
+      ),
+     
+      'qualification' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Qualification of the person.',
+      ),
+
+      'collage' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'collage of the person.',
+      ),
+
+       'Education_detail' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Education detail of the person.',
+      ),
+
+       'Employee_in' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Employee in..',
+      ),
+        
+      'occupation' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Occupation of the person.',
+      ),
+
+       'occupation_detail' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'occupation detail of the person.',
+      ),
+
+      'income' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Income of the person.',
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+   $schema['Matri_Memb_Familydetail'] = array(
+      'description' => 'My table description',
+
+      'fields' => array(
+        'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => "Creator user id ",
+      ),
+
+      'memberuuid' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'uuid of the person.',
+      ),
+     
+      'father_occupation' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Father Occupation.',
+      ),
+
+      'mother_occupation' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Mother Occupation.',
+      ),
+        
+      'brother' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'brother of the person.',
+      ),
+
+      'marital_status_brother' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Matrital satus the person brother.',
+      ),
+
+       'Sister' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'sister  of the person.',
+      ),
+
+      'marital_status_Sister' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Matrital satus the person sister',
+      ),
+
+
+       'about_family' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'About_family of person.',
+      ),
+
+       
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}
+/**
+ * Implements hook_install().
+ */
+
+function Matrimony_profile_install() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $schema = Matrimony_profile_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->createTable($name, $table);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+
+function Matrimony_profile_uninstall() {
+  \Drupal\Core\Database\Database::setActiveConnection('mendhrudb');
+  $connection = \Drupal\Core\Database\Database::getConnection();
+  $schema = Matrimony_profile_schema_mendhrudb();
+  foreach ($schema as $name => $table) {
+    $connection->schema()->dropTable($name);
+  }
+  \Drupal\Core\Database\Database::setActiveConnection();
+}

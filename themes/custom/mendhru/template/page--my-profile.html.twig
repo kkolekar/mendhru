@@ -133,13 +133,22 @@
           <!--member-wall-starts-here-->
           <div class="member-wall-wraper">
             <div>
-              <input type="text" id="post_bar"" placeholder="Postsomething.." name="search">
+              <input type="text" id="post_bar"" placeholder="Postsomething.." name="search/>
             <button id="post_button">POST</button>
             </div>
+          {% if path == '/my-profile' %}
              <div>
               {{ drupal_view('latest_article') }}
-             </div>
+              </div>
+           {% endif %}
+          {% if path =='/my-profile/matri' %}
+          <div>
+          {{page.matrimony_profile}}
           </div>
+          {% endif %}
+          </div>
+
+           {% if path == '/my-profile' %}
           <!-- disply Member List -->
           <div class="member-list-wraper">
               {% for member in memberList %}
@@ -153,9 +162,8 @@
               </div>
               {% endfor %}
           </div>
+          {% endif %}
         </div>  
-
-
 
     <div class="page-footer">
         {% if page.footer %}
