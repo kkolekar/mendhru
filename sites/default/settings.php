@@ -768,14 +768,6 @@ $settings['entity_update_batch_size'] = 50;
  if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
    include $app_root . '/' . $site_path . '/settings.local.php';
  }
-$databases['default']['default'] = array (
-  'database' => 'mendhrudb',
-  'username' => 'root',
-  'password' => 'root',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+
 $config_directories['sync'] = 'sites/default/files/config_ipKulN3tS3WUYCiYQWsnK2Rfq-E48cnwpEpmdnJtbQQgvoJHkOUWKM_W5bF6oEy7pVgpclqsww/sync';
+
