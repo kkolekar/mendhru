@@ -25,6 +25,7 @@ jQuery(document).ready(function($) {
                 }
             }
         };
+
         $.ajax({
           type:'post',
           url:'profile-activity ',
@@ -36,7 +37,5 @@ jQuery(document).ready(function($) {
             console.log(responce);
           }
         });
-
-
       });
 });
